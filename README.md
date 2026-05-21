@@ -19,6 +19,8 @@ The download links above install the latest published version directly.
 - macOS: open the `.dmg`, then drag KeyPoint to Applications
 - Windows: run the downloaded `.exe` installer
 
+The current macOS build is not Apple-notarized yet. If macOS shows a warning that Apple cannot check the app for malicious software, open KeyPoint with `Control` + click, choose Open, then choose Open again. If macOS still blocks it, see `docs/macos-install.md`.
+
 On macOS, grant Accessibility and Input Monitoring permission when prompted or from System Settings. KeyPoint needs those permissions to capture global keyboard input and move/click the mouse.
 
 On Windows, the installer uses Microsoft WebView2. If WebView2 is not already installed, the installer downloads it automatically.
@@ -83,7 +85,7 @@ git tag v0.1.0
 git push origin v0.1.0
 ```
 
-The workflow creates a draft GitHub Release with downloadable installer files. Review the release notes and publish it from GitHub.
+The workflow creates a GitHub Release with downloadable installer files.
 
 After the first release is published, users can always download the latest installer from:
 
