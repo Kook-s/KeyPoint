@@ -80,6 +80,8 @@ npm run tauri:dev
 
 This repository includes a GitHub Actions workflow that builds macOS and Windows installers when a version tag is pushed.
 
+macOS releases require Apple Developer ID signing and notarization. Configure the GitHub Actions secrets in `docs/macos-signing.md` before tagging a public macOS release.
+
 ```sh
 git tag v0.1.4
 git push origin v0.1.4
