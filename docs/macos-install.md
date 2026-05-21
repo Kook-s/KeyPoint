@@ -12,32 +12,7 @@ When the `.dmg` opens, Finder may show `KeyPoint` under Locations near your Mac 
 
 ## Apple cannot check this app
 
-If macOS says Apple cannot check KeyPoint for malicious software, the app is not broken. It means this build has not been notarized by Apple yet.
-
-Do not run KeyPoint from the mounted `.dmg` window. Copy it to Applications first.
-
-Try this first:
-
-1. Open Applications.
-2. Hold `Control` and click `KeyPoint.app`.
-3. Choose Open.
-4. Choose Open again in the warning dialog.
-
-If macOS still blocks the app:
-
-1. Open System Settings.
-2. Go to Privacy & Security.
-3. Scroll to Security.
-4. Click Open Anyway for KeyPoint.
-5. Confirm Open.
-
-If the app is still blocked, remove the download quarantine flag:
-
-```sh
-xattr -rd com.apple.quarantine /Applications/KeyPoint.app
-```
-
-Then open KeyPoint from Applications again.
+If macOS says Apple cannot check KeyPoint for malicious software, that DMG was not signed and notarized correctly. Do not publish that file as a normal user download. Configure Apple Developer ID signing and notarization, then create a new release.
 
 ## Required permissions
 
