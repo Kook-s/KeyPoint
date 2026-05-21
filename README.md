@@ -14,10 +14,12 @@ Repository: <https://github.com/Kook-s/KeyPoint>
 
 [Download Windows MSI](https://github.com/Kook-s/KeyPoint/releases/latest/download/KeyPoint-Windows.msi)
 
-The download links above install the latest published version directly.
+The download links above download the latest installer directly.
 
 - macOS: open the `.dmg`, drag KeyPoint to Applications, then eject the DMG
 - Windows: run the downloaded `.exe` installer
+
+On macOS, opening the `.dmg` mounts a temporary disk named KeyPoint in Finder. That is normal and is not the installed app. The app is installed only after you drag `KeyPoint.app` into Applications.
 
 The current macOS build is not Apple-notarized yet. If macOS shows a warning that Apple cannot check the app for malicious software, do not open it from the mounted DMG. Copy it to Applications first, then use `Control` + click > Open. If macOS still blocks it, see `docs/macos-install.md`.
 
@@ -81,8 +83,8 @@ npm run tauri:dev
 This repository includes a GitHub Actions workflow that builds macOS and Windows installers when a version tag is pushed.
 
 ```sh
-git tag v0.1.2
-git push origin v0.1.2
+git tag v0.1.3
+git push origin v0.1.3
 ```
 
 The workflow creates a GitHub Release with downloadable installer files.

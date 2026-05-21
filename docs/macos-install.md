@@ -8,6 +8,8 @@ KeyPoint can be installed like a normal macOS app:
 4. Eject the mounted `KeyPoint` disk image.
 5. Open KeyPoint from Applications.
 
+When the `.dmg` opens, Finder may show `KeyPoint` under Locations near your Mac name. That is only the mounted installer disk image. It is not where KeyPoint is installed.
+
 ## Apple cannot check this app
 
 If macOS says Apple cannot check KeyPoint for malicious software, the app is not broken. It means this build has not been notarized by Apple yet.
