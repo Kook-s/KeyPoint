@@ -73,7 +73,7 @@ jobs:
             - macOS: KeyPoint-macOS.dmg
             - Windows: KeyPoint-Windows.exe or KeyPoint-Windows.msi
 
-            Note: the current macOS build is not Apple-notarized yet. If macOS blocks the app, open it with Control-click > Open or see docs/macos-install.md.
+            Note: the current macOS build is not Apple-notarized yet. Copy KeyPoint.app to Applications first. If macOS blocks it, open it with Control-click > Open, use System Settings > Privacy & Security > Open Anyway, or see docs/macos-install.md.
           draft: false
           prerelease: false
           files: release-assets/*

@@ -5,11 +5,14 @@ KeyPoint can be installed like a normal macOS app:
 1. Download `KeyPoint-macOS.dmg`.
 2. Open the `.dmg`.
 3. Drag `KeyPoint.app` to Applications.
-4. Open KeyPoint from Applications.
+4. Eject the mounted `KeyPoint` disk image.
+5. Open KeyPoint from Applications.
 
 ## Apple cannot check this app
 
 If macOS says Apple cannot check KeyPoint for malicious software, the app is not broken. It means this build has not been notarized by Apple yet.
+
+Do not run KeyPoint from the mounted `.dmg` window. Copy it to Applications first.
 
 Try this first:
 
@@ -18,13 +21,21 @@ Try this first:
 3. Choose Open.
 4. Choose Open again in the warning dialog.
 
-If macOS still blocks the app, remove the download quarantine flag:
+If macOS still blocks the app:
+
+1. Open System Settings.
+2. Go to Privacy & Security.
+3. Scroll to Security.
+4. Click Open Anyway for KeyPoint.
+5. Confirm Open.
+
+If the app is still blocked, remove the download quarantine flag:
 
 ```sh
 xattr -rd com.apple.quarantine /Applications/KeyPoint.app
 ```
 
-Then open KeyPoint again.
+Then open KeyPoint from Applications again.
 
 ## Required permissions
 

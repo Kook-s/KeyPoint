@@ -16,10 +16,10 @@ Repository: <https://github.com/Kook-s/KeyPoint>
 
 The download links above install the latest published version directly.
 
-- macOS: open the `.dmg`, then drag KeyPoint to Applications
+- macOS: open the `.dmg`, drag KeyPoint to Applications, then eject the DMG
 - Windows: run the downloaded `.exe` installer
 
-The current macOS build is not Apple-notarized yet. If macOS shows a warning that Apple cannot check the app for malicious software, open KeyPoint with `Control` + click, choose Open, then choose Open again. If macOS still blocks it, see `docs/macos-install.md`.
+The current macOS build is not Apple-notarized yet. If macOS shows a warning that Apple cannot check the app for malicious software, do not open it from the mounted DMG. Copy it to Applications first, then use `Control` + click > Open. If macOS still blocks it, see `docs/macos-install.md`.
 
 On macOS, grant Accessibility and Input Monitoring permission when prompted or from System Settings. KeyPoint needs those permissions to capture global keyboard input and move/click the mouse.
 
@@ -81,8 +81,8 @@ npm run tauri:dev
 This repository includes a GitHub Actions workflow that builds macOS and Windows installers when a version tag is pushed.
 
 ```sh
-git tag v0.1.0
-git push origin v0.1.0
+git tag v0.1.1
+git push origin v0.1.1
 ```
 
 The workflow creates a GitHub Release with downloadable installer files.
