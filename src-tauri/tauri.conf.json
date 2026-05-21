@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "KeyPoint",
+  "version": "0.1.0",
+  "identifier": "com.keypoint.desktop",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://127.0.0.1:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "KeyPoint",
+        "width": 820,
+        "height": 620,
+        "minWidth": 700,
+        "minHeight": 560
+      }
+    ],
+    "security": {
+      "csp": null
+    },
+    "macOSPrivateApi": true
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "publisher": "KeyPoint contributors",
+    "category": "Utility",
+    "shortDescription": "Keyboard-first mouse control utility",
+    "longDescription": "KeyPoint converts selected keyboard input into mouse movement, clicking, dragging, and scrolling while mouse mode is enabled.",
+    "license": "MIT",
+    "licenseFile": "../LICENSE",
+    "icon": [
+      "icons/icon.png",
+      "icons/icon.ico"
+    ],
+    "macOS": {
+      "entitlements": "Entitlements.plist"
+    },
+    "windows": {
+      "allowDowngrades": false,
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper",
+        "silent": true
+      },
+      "wix": {
+        "upgradeCode": "DF3A137B-41DD-4D60-B20B-7218DFD003EB",
+        "language": "en-US"
+      },
+      "nsis": {
+        "installerIcon": "icons/icon.ico",
+        "uninstallerIcon": "icons/icon.ico",
+        "installMode": "currentUser",
+        "languages": [
+          "English",
+          "Korean"
+        ],
+        "displayLanguageSelector": false
+      }
+    }
+  }
+}
