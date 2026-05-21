@@ -454,7 +454,7 @@ mod windows {
     use super::*;
     use std::{
         collections::HashSet,
-        ptr::null,
+        ptr::{null, null_mut},
         sync::{Mutex, OnceLock},
         thread,
         time::{Duration, Instant},
@@ -462,10 +462,13 @@ mod windows {
     use windows_sys::Win32::{
         Foundation::{LPARAM, LRESULT, WPARAM},
         System::LibraryLoader::GetModuleHandleW,
-        UI::WindowsAndMessaging::{
-            CallNextHookEx, DispatchMessageW, GetAsyncKeyState, GetMessageW, SetWindowsHookExW,
-            TranslateMessage, KBDLLHOOKSTRUCT, MSG, WH_KEYBOARD_LL, WM_KEYDOWN, WM_KEYUP,
-            WM_SYSKEYDOWN, WM_SYSKEYUP,
+        UI::{
+            Input::KeyboardAndMouse::GetAsyncKeyState,
+            WindowsAndMessaging::{
+                CallNextHookEx, DispatchMessageW, GetMessageW, SetWindowsHookExW, TranslateMessage,
+                KBDLLHOOKSTRUCT, MSG, WH_KEYBOARD_LL, WM_KEYDOWN, WM_KEYUP, WM_SYSKEYDOWN,
+                WM_SYSKEYUP,
+            },
         },
     };
 
@@ -499,13 +502,13 @@ mod windows {
         thread::spawn(move || unsafe {
             let module = GetModuleHandleW(null());
             let hook = SetWindowsHookExW(WH_KEYBOARD_LL, Some(keyboard_proc), module, 0);
-            if hook == 0 {
+            if hook == null_mut() {
                 eprintln!("KeyPoint input hook failed: SetWindowsHookExW returned null");
                 return;
             }
 
             let mut message = std::mem::zeroed::<MSG>();
-            while GetMessageW(&mut message, 0, 0, 0) > 0 {
+            while GetMessageW(&mut message, null_mut(), 0, 0) > 0 {
                 TranslateMessage(&message);
                 DispatchMessageW(&message);
             }
@@ -554,7 +557,7 @@ mod windows {
 
     unsafe extern "system" fn keyboard_proc(code: i32, wparam: WPARAM, lparam: LPARAM) -> LRESULT {
         if code < 0 {
-            return CallNextHookEx(0, code, wparam, lparam);
+            return CallNextHookEx(null_mut(), code, wparam, lparam);
         }
 
         let event = *(lparam as *const KBDLLHOOKSTRUCT);
@@ -569,7 +572,7 @@ mod windows {
         if suppress {
             1
         } else {
-            CallNextHookEx(0, code, wparam, lparam)
+            CallNextHookEx(null_mut(), code, wparam, lparam)
         }
     }
 

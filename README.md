@@ -81,8 +81,8 @@ npm run tauri:dev
 This repository includes a GitHub Actions workflow that builds macOS and Windows installers when a version tag is pushed.
 
 ```sh
-git tag v0.1.1
-git push origin v0.1.1
+git tag v0.1.2
+git push origin v0.1.2
 ```
 
 The workflow creates a GitHub Release with downloadable installer files.

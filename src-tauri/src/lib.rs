@@ -7,8 +7,10 @@ use std::sync::{Arc, RwLock};
 use tauri::{
     menu::{CheckMenuItem, CheckMenuItemBuilder, MenuBuilder, MenuItemBuilder, PredefinedMenuItem},
     tray::TrayIconBuilder,
-    ActivationPolicy, AppHandle, Emitter, Manager, State, WindowEvent, Wry,
+    AppHandle, Emitter, Manager, State, WindowEvent, Wry,
 };
+#[cfg(target_os = "macos")]
+use tauri::ActivationPolicy;
 use tauri_plugin_autostart::ManagerExt;
 
 pub struct SharedState {
