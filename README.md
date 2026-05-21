@@ -8,16 +8,22 @@ Repository: <https://github.com/Kook-s/KeyPoint>
 
 ## Download
 
-Download the latest installer from the Releases page:
+[Download for macOS](https://github.com/Kook-s/KeyPoint/releases/latest/download/KeyPoint-macOS.dmg)
 
-- Latest release: <https://github.com/Kook-s/KeyPoint/releases/latest>
-- All releases: <https://github.com/Kook-s/KeyPoint/releases>
-- macOS: download the `.dmg` file, then drag KeyPoint to Applications
-- Windows: download the `.exe` or `.msi` installer and run it
+[Download for Windows](https://github.com/Kook-s/KeyPoint/releases/latest/download/KeyPoint-Windows.exe)
+
+[Download Windows MSI](https://github.com/Kook-s/KeyPoint/releases/latest/download/KeyPoint-Windows.msi)
+
+The download links above install the latest published version directly.
+
+- macOS: open the `.dmg`, then drag KeyPoint to Applications
+- Windows: run the downloaded `.exe` installer
 
 On macOS, grant Accessibility and Input Monitoring permission when prompted or from System Settings. KeyPoint needs those permissions to capture global keyboard input and move/click the mouse.
 
 On Windows, the installer uses Microsoft WebView2. If WebView2 is not already installed, the installer downloads it automatically.
+
+All release files are also available at <https://github.com/Kook-s/KeyPoint/releases>.
 
 ## Controls
 

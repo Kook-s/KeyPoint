@@ -15,9 +15,7 @@ jobs:
       matrix:
         include:
           - platform: macos-latest
-            args: --target universal-apple-darwin
           - platform: windows-latest
-            args: ""
 
     runs-on: ${{ matrix.platform }}
 
@@ -41,14 +39,39 @@ jobs:
       - name: Install frontend dependencies
         run: npm ci
 
-      - name: Build and upload release assets
-        uses: tauri-apps/tauri-action@v0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build macOS installer
+        if: matrix.platform == 'macos-latest'
+        run: npm run tauri -- build --target universal-apple-darwin
+
+      - name: Prepare macOS download asset
+        if: matrix.platform == 'macos-latest'
+        run: |
+          mkdir -p release-assets
+          cp src-tauri/target/universal-apple-darwin/release/bundle/dmg/*.dmg release-assets/KeyPoint-macOS.dmg
+
+      - name: Build Windows installers
+        if: matrix.platform == 'windows-latest'
+        run: npm run tauri:build:windows
+
+      - name: Prepare Windows download assets
+        if: matrix.platform == 'windows-latest'
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force release-assets | Out-Null
+          $exe = Get-ChildItem src-tauri\target\release\bundle\nsis -Filter *.exe | Select-Object -First 1
+          $msi = Get-ChildItem src-tauri\target\release\bundle\msi -Filter *.msi | Select-Object -First 1
+          Copy-Item $exe.FullName release-assets\KeyPoint-Windows.exe
+          Copy-Item $msi.FullName release-assets\KeyPoint-Windows.msi
+
+      - name: Upload release assets
+        uses: softprops/action-gh-release@v2
         with:
-          tagName: ${{ github.ref_name }}
-          releaseName: "KeyPoint ${{ github.ref_name }}"
-          releaseBody: "Download the installer for your operating system."
-          releaseDraft: true
+          name: "KeyPoint ${{ github.ref_name }}"
+          body: |
+            Download KeyPoint for your operating system.
+
+            - macOS: KeyPoint-macOS.dmg
+            - Windows: KeyPoint-Windows.exe or KeyPoint-Windows.msi
+          draft: false
           prerelease: false
-          args: ${{ matrix.args }}
+          files: release-assets/*
