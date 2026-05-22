@@ -2,30 +2,7 @@
 
 KeyPoint is a local desktop utility that converts selected keyboard input into mouse control while mouse mode is enabled.
 
-KeyPoint is built with Tauri, so end users do not need to run a terminal server. Install the macOS or Windows build from GitHub Releases and run it like a normal desktop app.
-
-Repository: <https://github.com/Kook-s/KeyPoint>
-
-## Download
-
-[Download for macOS](https://github.com/Kook-s/KeyPoint/releases/latest/download/KeyPoint-macOS.dmg)
-
-[Download for Windows](https://github.com/Kook-s/KeyPoint/releases/latest/download/KeyPoint-Windows.exe)
-
-[Download Windows MSI](https://github.com/Kook-s/KeyPoint/releases/latest/download/KeyPoint-Windows.msi)
-
-The download links above download the latest installer directly.
-
-- macOS: open the `.dmg`, drag KeyPoint to Applications, then eject the DMG
-- Windows: run the downloaded `.exe` installer
-
-On macOS, opening the `.dmg` mounts a temporary disk named KeyPoint in Finder. That is normal and is not the installed app. The app is installed only after you drag `KeyPoint.app` into Applications.
-
-On macOS, grant Accessibility and Input Monitoring permission when prompted or from System Settings. KeyPoint needs those permissions to capture global keyboard input and move/click the mouse.
-
-On Windows, the installer uses Microsoft WebView2. If WebView2 is not already installed, the installer downloads it automatically.
-
-All release files are also available at <https://github.com/Kook-s/KeyPoint/releases>.
+KeyPoint is built with Tauri and runs as a desktop app on macOS and Windows.
 
 ## Controls
 
@@ -75,23 +52,6 @@ For development:
 ```sh
 npm run tauri:dev
 ```
-
-## Release
-
-This repository includes a GitHub Actions workflow that builds macOS and Windows installers when a version tag is pushed.
-
-macOS releases require Apple Developer ID signing and notarization. Configure the GitHub Actions secrets in `docs/macos-signing.md` before tagging a public macOS release.
-
-```sh
-git tag v0.1.4
-git push origin v0.1.4
-```
-
-The workflow creates a GitHub Release with downloadable installer files.
-
-After the first release is published, users can always download the latest installer from:
-
-<https://github.com/Kook-s/KeyPoint/releases/latest>
 
 ## Settings
 
