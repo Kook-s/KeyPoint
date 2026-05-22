@@ -1,5 +1,7 @@
 # KeyPoint
 
+[English](README.en.md)
+
 KeyPoint는 마우스 모드가 켜져 있을 때 지정한 키보드 입력을 마우스 조작으로 바꿔 주는 로컬 데스크톱 유틸리티입니다.
 
 Tauri 기반으로 만들어졌으며 macOS와 Windows에서 데스크톱 앱으로 실행됩니다.
@@ -61,78 +63,3 @@ npm run tauri:dev
 - Windows: `%APPDATA%\KeyPoint\config.json`
 
 설정 창에서 모든 단축키를 바꿀 수 있습니다. 동작 키는 단일 `A-Z` 키를 사용할 수 있고, 마우스 모드 전환 키는 `Command + Shift + Z` 또는 `Ctrl + Shift + Z` 같은 조합을 사용할 수 있습니다.
-
-## 라이선스
-
-MIT
-
-<details>
-<summary>English</summary>
-
-KeyPoint is a local desktop utility that converts selected keyboard input into mouse control while mouse mode is enabled.
-
-KeyPoint is built with Tauri and runs as a desktop app on macOS and Windows.
-
-### Controls
-
-- Toggle mouse mode: `Command + Shift + Z` on macOS, `Ctrl + Shift + Z` on Windows by default
-- Move cursor: `W` `A` `S` `D`
-- Left click: short press `J`
-- Drag: hold `J` and move with `W` `A` `S` `D`
-- Right click: `L`
-- Scroll: hold `K` and press `W` `A` `S` `D`
-
-### Build From Source
-
-Prerequisites:
-
-- Node.js 20 or newer
-- Rust stable
-- Tauri platform prerequisites for your OS
-
-```sh
-npm install
-npm run tauri:build
-```
-
-Build outputs are created under `src-tauri/target/release/bundle/`.
-
-On macOS, if the `.dmg` bundling step fails because the terminal cannot control Finder, build the app bundle directly:
-
-```sh
-npm run tauri:build:app
-```
-
-On Windows, build installable `.exe` and `.msi` files:
-
-```sh
-npm run tauri:build:windows
-```
-
-Windows installer outputs are created under:
-
-- `src-tauri/target/release/bundle/nsis/`
-- `src-tauri/target/release/bundle/msi/`
-
-See `docs/windows-build.md` for the full Windows build checklist.
-
-For development:
-
-```sh
-npm run tauri:dev
-```
-
-### Settings
-
-Settings are stored as JSON under the user config directory:
-
-- macOS: `~/Library/Application Support/KeyPoint/config.json`
-- Windows: `%APPDATA%\KeyPoint\config.json`
-
-All shortcuts can be changed in the settings window. Action keys accept single `A-Z` keys, and the mouse-mode toggle accepts modifier combinations such as `Command + Shift + Z` or `Ctrl + Shift + Z`.
-
-### License
-
-MIT
-
-</details>

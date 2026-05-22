@@ -6,7 +6,6 @@ authors = ["KeyPoint"]
 edition = "2021"
 homepage = "https://github.com/Kook-s/KeyPoint"
 repository = "https://github.com/Kook-s/KeyPoint"
-license = "MIT"
 
 [lib]
 name = "keypoint_lib"

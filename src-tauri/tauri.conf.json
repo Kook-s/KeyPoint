@@ -31,7 +31,6 @@
     "category": "Utility",
     "shortDescription": "Keyboard-first mouse control utility",
     "longDescription": "KeyPoint converts selected keyboard input into mouse movement, clicking, dragging, and scrolling while mouse mode is enabled.",
-    "license": "MIT",
     "icon": [
       "icons/icon.png",
       "icons/icon.ico"
