@@ -1,6 +1,6 @@
 [package]
 name = "keypoint"
-version = "0.1.4"
+version = "0.1.5"
 description = "Keyboard-first mouse control utility"
 authors = ["KeyPoint"]
 edition = "2021"

@@ -2,7 +2,7 @@
   "name": "keypoint",
   "description": "Keyboard-first mouse control utility",
   "private": true,
-  "version": "0.1.4",
+  "version": "0.1.5",
   "homepage": "https://github.com/Kook-s/KeyPoint",
   "repository": {
     "type": "git",

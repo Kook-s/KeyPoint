@@ -83,6 +83,9 @@ pub fn run() {
 
             InputController::start(shared_config, app.handle().clone());
             build_tray(app.handle())?;
+            if !std::env::args().any(|arg| arg == "--minimized") {
+                show_main_window(app.handle());
+            }
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
@@ -92,6 +95,13 @@ pub fn run() {
         ])
         .run(tauri::generate_context!())
         .expect("failed to run KeyPoint");
+}
+
+fn show_main_window(app: &AppHandle) {
+    if let Some(window) = app.get_webview_window("main") {
+        let _ = window.show();
+        let _ = window.set_focus();
+    }
 }
 
 fn apply_autostart(app: &AppHandle, enabled: bool) -> Result<(), String> {
@@ -158,10 +168,7 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
         .menu(&menu)
         .on_menu_event(|app, event| match event.id().as_ref() {
             "open_settings" => {
-                if let Some(window) = app.get_webview_window("main") {
-                    let _ = window.show();
-                    let _ = window.set_focus();
-                }
+                show_main_window(app);
             }
             "toggle_mode" => {
                 if let Some(state) = app.try_state::<SharedState>() {
