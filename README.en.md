@@ -49,6 +49,8 @@ Windows installer outputs are created under:
 
 See `docs/windows-build.md` for the full Windows build checklist.
 
+Windows distribution files are published through GitHub Releases. Pushing a version tag such as `v0.1.4` runs GitHub Actions on Windows, builds the `.exe` and `.msi` installers, and uploads them to that release.
+
 For development:
 
 ```sh

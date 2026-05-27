@@ -49,6 +49,8 @@ Windows 설치 파일은 다음 경로에 생성됩니다.
 
 Windows 빌드 체크리스트는 `docs/windows-build.md`를 참고하세요.
 
+Windows 배포 파일은 GitHub Release에서 받을 수 있습니다. 새 버전 태그(`v0.1.4` 같은 형식)를 푸시하면 GitHub Actions가 Windows에서 `.exe`와 `.msi` 설치 파일을 만들고 해당 Release에 업로드합니다.
+
 개발 모드 실행:
 
 ```sh
